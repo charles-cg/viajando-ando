@@ -1,0 +1,2 @@
+C:/Users/Charles/Documents/GitHub/viajando-ando/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Charles/Documents/GitHub/viajando-ando/cmake-build-debug/CMakeFiles/rebuild_cache.dir
