@@ -57,7 +57,7 @@ inline void User::registerUser() {
     setName(n);
     cout << "Email del usuario: \n"; cin >> em;
     setEmail(em);
-    cout << "Contraseña del usuario: \n"; cin >> pass;
+    cout << "Contrasena del usuario: \n"; cin >> pass;
     setPassword(pass);
 }
 

@@ -60,12 +60,12 @@ int Flights::get_distance(){
 }
 
 void Flights::show_info(){
-    cout<<"Flights:"<<endl;
-    cout<<"Flight Name: "<<get_flight_name()<<endl;
-    cout<<"Price: "<<get_price()<<endl;
+    cout<<"Detalles de vuelo:"<<endl;
+    cout<<"nombre del vuelo: "<<get_flight_name()<<endl;
+    cout<<"Precio: "<<" $"<< get_price()<<endl;
     //cout <<"First Class: " << (get_first_class() ? "Yes" : "No") << endl;
-    cout<<"Duration HRS: "<<get_duration_hrs()<<endl;
-    cout<<"Date: "<<get_day()<< "/" << get_month()<< endl;
+    cout<<"Duracion en horas: "<<get_duration_hrs()<<endl;
+    cout<<"Fecha: "<<get_day()<< "/" << get_month()<< endl;
 }
 
 

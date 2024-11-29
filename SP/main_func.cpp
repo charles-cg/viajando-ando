@@ -7,8 +7,8 @@ using namespace std;
 
 void showMenu() {
 
-    cout << "\n|| Bienvenido al sistema Viajando Ando!! ||\n";
-    cout << "Escoga la opción que desee (escriba el número correspondiente) \n";
+    cout << "\n|| Bienvenido al sistema de reservas Viajando Ando!! ||\n";
+    cout << "Escoga la opcion que desee (escriba el numero correspondiente) \n";
     cout << "1. Registrar nuevo usuario\n";
     cout << "2. Mostrar todos los vuelos\n";
     cout << "3. Reservar\n";
@@ -32,10 +32,10 @@ int main() {
 
     // Add flights to the list
     flight_list.push_back(Flights("Ciudad de Mexico-Japon", 850.00,  14, 22, 10, 10944));
-    flight_list.push_back(Flights("España-Francia", 150.00,  2, 10, 10, 800));
+    flight_list.push_back(Flights("Espana-Francia", 150.00,  2, 10, 10, 800));
     flight_list.push_back(Flights("Australia-Ciudad de Mexico", 1300.00,  15, 10, 10, 12875));
-    flight_list.push_back(Flights("Hungría-Republica Checa", 150.00,  1, 13, 11, 480));
-    flight_list.push_back(Flights("Estados Unidos-México", 400.00,  5, 15, 12, 2414));
+    flight_list.push_back(Flights("Hungria-Republica Checa", 150.00,  1, 13, 11, 480));
+    flight_list.push_back(Flights("Estados Unidos-Mexico", 400.00,  5, 15, 12, 2414));
 
     do {
         showMenu();
@@ -66,7 +66,7 @@ int main() {
                 for (int i = 0; i < flight_list.size(); i++) {
                     cout << i+1 << ". Vuelo " << flight_list[i].get_flight_name() << " ";
                     cout << "fecha: " << flight_list.at(i).get_day() << "/" << flight_list.at(i).get_month() << " ";
-                    cout << "precio: " << flight_list.at(i).get_price() << " " << endl;
+                    cout << "precio: $" << flight_list.at(i).get_price() << " " << endl;
                 }
                 break;
             }
@@ -75,7 +75,7 @@ int main() {
                 int id = 0;
                 string pass_input = "";
 
-                cout << "Ingrese id: " << endl; cin >> id;
+                cout << "Ingrese ID del usuario: " << endl; cin >> id;
                 string username = users.at(id-1).getName();
                 cout << "username: " << username << endl;
                 string pass_user = users.at(id-1).getPassword();
@@ -91,7 +91,7 @@ int main() {
                     cout << "Detalles del vuelo seleccionado:\n";
                     flight_list.at(opt_book - 1).show_info();
 
-                    cout << "Desea asiento de primera clase? 1. si 2. no\nEl precio es 10 veces mayor a la clase turista.\n";
+                    cout << "Desea asiento de primera clase?\nEl precio es 10 veces mayor a la clase turista. 1. si 2. no\n";
                     cin >> opt_seats;
 
                     if (opt_seats == 1) {
@@ -136,24 +136,37 @@ int main() {
             }
             case 4: {
                 // Cancelar Reserva
-                int num_reserva;
-                cout << "Ingrese el numero de reserva que desea cancelar: ";
-                cin >> num_reserva;
+                int id = 0;
+                string pass_input = "";
 
-                bool found = false;
-                for (int i = 0; i < bookings.size(); i++) {
-                    if (bookings[i].getNumBooking() == num_reserva) {
-                        bookings[i].cancelBooking();
-                        cout << "Reserva cancelada con exito.\n";
-                        found = true;
-                        break;
+                cout << "Ingrese ID del usuario: " << endl; cin >> id;
+                string username = users.at(id-1).getName();
+                cout << "username: " << username << endl;
+                string pass_user = users.at(id-1).getPassword();
+                cout << "Contrasena: \n"; cin >> pass_input;
+
+                if(pass_input == pass_user){
+                    int num_reserva;
+                    cout << "Ingrese el numero de reserva que desea cancelar: ";
+                    cin >> num_reserva;
+
+                    bool found = false;
+                    for (int i = 0; i < bookings.size(); i++) {
+                        if (bookings[i].getNumBooking() == num_reserva and users[id-1].getName() == bookings[i].getUsername()
+                            and bookings[i].isActive() == true) {
+                            bookings[i].cancelBooking();
+                            cout << "Reserva cancelada con exito.\n";
+                            found = true;
+                            break;
+                        }
                     }
-
-                if (!found) {
-                    cout << "No se encontro la reserva con ese numero.\n";
+                    if (!found) {
+                        cout << "No se encontro una reserva con ese numero dentro de la cuenta.\n";
                 }
-                break;
-            }
+                    break;
+                }else {
+                    cout << "Contrasena incorrecta.\n";
+                }
             }
             case 5: {
                 // Salir

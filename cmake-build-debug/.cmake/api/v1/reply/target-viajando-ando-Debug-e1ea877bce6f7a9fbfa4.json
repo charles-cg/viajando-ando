@@ -116,7 +116,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "SP/vuelos.h",
+			"path" : "SP/Flights.h",
 			"sourceGroupIndex" : 1
 		}
 	],

@@ -37,6 +37,7 @@ public:
     void cancelBooking();
     bool isActive();
     int getNumBooking();
+    string getUsername();
 };
 
 //set methods
@@ -96,9 +97,6 @@ inline void Booking::showDetails() {
     cout << "Usuario enlazado a la reserva: " << username << endl;
 }
 
-
-
-
 void Booking::cancelBooking() {
     active = false;
 }
@@ -110,6 +108,10 @@ bool Booking::isActive() {
 
 int Booking ::getNumBooking() {
     return num_booking;
+}
+
+inline string Booking::getUsername() {
+    return username;
 }
 
 
