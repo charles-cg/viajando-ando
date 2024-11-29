@@ -18,7 +18,8 @@ public:
     Booking() {
         num_booking = 0;
         username = "";
-        first_class, active = false;
+        first_class = false;
+        active = true;
         price = 0;
         day, month = 1;
         flight_name = "";
@@ -30,8 +31,12 @@ public:
     void setPrice(float p);
     void setDay(int d);
     void setMonth(int m);
-    void createBooking(User& user, string username, Flights& flight, int price, string flight_name, int day, int month);
+    void createBooking(User& user, string username, Flights& flight, float price, string flight_name, int day, int month,
+        int num_booking, bool first_class);
+    void showDetails();
 };
+
+//set methods
 inline void Booking::setNumBooking(int nb) {
     num_booking = nb;
 }
@@ -54,9 +59,40 @@ inline void Booking::setMonth(int m) {
     month = m;
 }
 
-inline void Booking::createBooking(User &user, string username, Flights &flight, int price, string flight_name, int day, int month) {
-    user.getName();
+inline void Booking::createBooking(User &user, string username, Flights &flight, float price, string flight_name, int day,
+    int month, int num_booking, bool first_class) {
+    //
+    username = user.getName();
+    setUsername(username);
+
+    //
+    flight_name = flight.get_flight_name();
+    setFlightName(flight_name);
+
+    //
+    price = flight.get_price();
+    setPrice(price);
+
+    //
+    day = flight.get_day();
+    setDay(day);
+
+    //
+    month = flight.get_month();
+    setMonth(month);
+
+    //
+    setNumBooking(num_booking);
+
+    //
+    setFirstClass(first_class);
 }
+
+inline void Booking::showDetails() {
+    cout << "Numero de reserva: " << num_booking << endl;
+    cout << "Usuario enlazado a la reserva: " << username << endl;
+}
+
 
 
 

@@ -10,9 +10,10 @@ void showMenu() {
     cout << "Escoga la opción que desee (escriba el número correspondiente) \n";
     cout << "1. Registrar nuevo usuario\n";
     cout << "2. Mostrar todos los vuelos\n";
-    cout << "3. Reservar vuelo\n";
-    cout << "4. Cancelar Reserva\n";
-    cout << "5. Salir\n";
+    cout << "3. Buscare por fecha\n";
+    cout << "4. Reservar\n";
+    cout << "5. Cancelar Reserva\n";
+    cout << "6. Salir\n";
 }
 
 
@@ -20,6 +21,8 @@ int main() {
     int option;
 
     int idcount = 1;
+
+    int num_book = 1;
 
     vector<User> users;
 
@@ -63,7 +66,7 @@ int main() {
                 for (int i = 0; i < flight_list.size(); i++) {
                     cout << i+1 << ". Vuelo " << flight_list[i].get_flight_name() << " ";
                     cout << "fecha: " << flight_list.at(i).get_day() << "/" << flight_list.at(i).get_month() << " ";
-                    cout << "precio: " << flight_list.at(i).get_price() << " ";
+                    cout << "precio: " << flight_list.at(i).get_price() << " " << endl;
                 }
                 break;
             }
@@ -71,6 +74,7 @@ int main() {
             case 3: {
                 // Implement option 3: Buscar vuelos en una fecha específica
                 cout << "Flitrar fecha\n";
+                break;
             }
 
             case 4: {
@@ -94,9 +98,43 @@ int main() {
                     cout << "Desea asiento de primera clase? 1. si 2. no\nEl precio es 10 veces mayor a la clase turista.\n";
                     cin >> opt_seats;
 
-                    if
+                    if (opt_seats == 1) {
+                        first_class = true;
+
+                        Booking new_booking;
+                        new_booking.createBooking(users.at(id-1), users.at(id-1).getName(), flight_list.at(opt_book-1),
+                        (flight_list.at(opt_book-1).get_price()*10), flight_list.at(opt_book-1).get_flight_name(),
+                        flight_list.at(opt_book - 1).get_day(), flight_list.at(opt_book - 1).get_month(), num_book,
+                        first_class);
+                        bookings.push_back(new_booking);
+
+                        cout << "La reserva se ha realizado con exito!\n";
+                        cout << "El numero de reserva asignado fue el: " << num_book << endl;
+
+                        num_book++;
+                        break;
+                    } if (opt_seats == 2) {
+                        first_class = false;
+
+                        Booking new_booking;
+                        new_booking.createBooking(users.at(id-1), users.at(id-1).getName(), flight_list.at(opt_book-1),
+                        flight_list.at(opt_book-1).get_price(), flight_list.at(opt_book-1).get_flight_name(),
+                        flight_list.at(opt_book - 1).get_day(), flight_list.at(opt_book - 1).get_month(), num_book,
+                        first_class);
+                        bookings.push_back(new_booking);
+
+                        cout << "La reserva se ha realizado con exito!\n";
+                        cout << "El numero de reserva asignado fue el: " << num_book << endl;
+
+                        num_book++;
+                        break;
+                    } else {
+                        cout << "Vuelo invalido\n";
+                        break;
+                    }
 
                 } else {
+                    cout << "Contrasena incorrecta!!\n";
                     break;
                 }
             }
