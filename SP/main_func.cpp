@@ -13,17 +13,12 @@ void showMenu() {
     cout << "1. Registrar nuevo usuario\n";
     cout << "2. Mostrar todos los vuelos\n";
     cout << "3. Reservar vuelo\n";
-    cout << "4. Elegir un vuelo con base en precio, duración o tipo de asiento\n";
-    cout << "5. Mostrar todos los detalles del vuelo elegido\n";
-    cout << "6. Contar Kilometros\n";
-    cout << "7. Cancelar Reserva\n";
-    cout << "8. Salir\n";
-
+    cout << "4. Cancelar Reserva\n";
+    cout << "5. Salir\n";
 }
 
 
 int main() {
-
     int option;
 
     int idcount = 1;
@@ -33,16 +28,16 @@ int main() {
     vector<Flights> flight_list;
 
     // Add flights to the list
-    flight_list.push_back(Flights("Ciudad de México-Japón", 850.00, true, 14, "22-10", 10944));
-    flight_list.push_back(Flights("España-Francia", 150.00, false, 2, "10-10", 800));
-    flight_list.push_back(Flights("Australia-Ciudad de México", 1300.00, true, 15, "10-10", 12875));
-    flight_list.push_back(Flights("Hungría-República Checa", 150.00, false, 1, "13-11", 480));
-    flight_list.push_back(Flights("Estados Unidos-México", 400.00, true, 5, "15-12", 2414));
+    flight_list.push_back(Flights("Ciudad de México-Japon", 850.00,  14, "22-10", 10944));
+    flight_list.push_back(Flights("España-Francia", 150.00,  2, "10-10", 800));
+    flight_list.push_back(Flights("Australia-Ciudad de México", 1300.00,  15, "10-10", 12875));
+    flight_list.push_back(Flights("Hungría-República Checa", 150.00,  1, "13-11", 480));
+    flight_list.push_back(Flights("Estados Unidos-México", 400.00,  5, "15-12", 2414));
 
     do {
         showMenu();
 
-        cout<<"Escoga la opción que desee (teclee el número correspondiente):"<<endl;
+        cout<<"Escoga la opcion que desee (teclee el numero correspondiente):"<<endl;
 
         cin>>option;
 
@@ -55,7 +50,7 @@ int main() {
 
                 users.push_back(new_user);
 
-                cout << "Usuario registrado con éxito!\n";
+                cout << "Usuario registrado con exito!\n";
                 cout << "Se la ha asignado el id de " << idcount << endl;
 
                 idcount++;
@@ -90,32 +85,14 @@ int main() {
             }
 
             case 4: {
-                // Implement option 4: Elegir un vuelo con base en precio, duración o tipo de asiento
-                cout << "Elegir un vuelo con base en precio, duración o tipo de asiento (opción no implementada aún)." << endl;
+                // Implement option 4: cancelar
+                cout << "Cancelar vuelo." << endl;
                 break;
             }
-
             case 5: {
-                // Implement option 5: Mostrar todos los detalles del vuelo elegido
-                cout << "Mostrar todos los detalles del vuelo elegido (opción no implementada aún)." << endl;
-                break;
+                // Salir
+                cout << "Hasta pronto" << endl;
             }
-
-            case 6: {
-                // Implement option 6: Contar Kilometros
-                cout << "Contar Kilometros (opción no implementada aún)." << endl;
-                break;
-            }
-
-            case 7: {
-                // Implement option 7: Cancelar Reserva
-                cout << "Cancelar Reserva (opción no implementada aún)." << endl;
-                break;
-            }
-
-            default:
-                cout << "Opción no válida, por favor intente de nuevo." << endl;
-            break;
         }
     } while (option != 8);
 
