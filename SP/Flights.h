@@ -8,17 +8,15 @@ class Flights {
   private:
     string flight_name;
     float price;
-    bool first_class;
     int duration_hrs;
     string date;
     int distance;
 
   public:
-    Flights(string _flight_name, float _price, bool _first_class, int _duration_hrs,string _date,int _distance){
+    Flights(string _flight_name, float _price, int _duration_hrs,string _date,int _distance){
       flight_name = _flight_name;
       price = _price;
       duration_hrs = _duration_hrs;
-      first_class = _first_class;
       date = _date;
       distance = _distance;
     };
