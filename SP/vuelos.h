@@ -9,20 +9,22 @@ class Flights {
     string flight_name;
     float price;
     int duration_hrs;
-    string date;
-    int distance;
+    int day, month;
+    float distance;
 
   public:
-    Flights(string _flight_name, float _price, int _duration_hrs,string _date,int _distance){
+    Flights(string _flight_name, float _price, int _duration_hrs,int _day, int _month, int _distance){
       flight_name = _flight_name;
       price = _price;
       duration_hrs = _duration_hrs;
-      date = _date;
+      day = _day;
+        month = _month;
       distance = _distance;
     };
     void show_info();
     string get_flight_name();
-    string get_date();
+    int get_day();
+    int get_month();
     float get_price();
     //bool get_first_class();
     int get_duration_hrs();
@@ -46,8 +48,11 @@ class Flights {
     return duration_hrs;
   }
 
-  string Flights::get_date(){
-    return date;
+  int Flights::get_day(){
+    return day;
+  }
+  int Flights::get_month(){
+      return month;
   }
 
   int Flights::get_distance(){
@@ -60,7 +65,7 @@ class Flights {
     cout<<"Price: "<<get_price()<<endl;
     //cout <<"First Class: " << (get_first_class() ? "Yes" : "No") << endl;
     cout<<"Duration HRS: "<<get_duration_hrs()<<endl;
-    cout<<"Date: "<<get_date()<<endl;
+    cout<<"Date: "<<get_day()<< "/" << get_month()<< endl;
   }
 
 

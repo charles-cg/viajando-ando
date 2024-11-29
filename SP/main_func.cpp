@@ -1,5 +1,3 @@
-#include "usuario.h"
-#include "Flights.h"
 #include "Reserva.h"
 #include <vector>
 #include <iostream>
@@ -27,12 +25,14 @@ int main() {
 
     vector<Flights> flight_list;
 
+    vector<Booking> bookings;
+
     // Add flights to the list
-    flight_list.push_back(Flights("Ciudad de Mexico-Japon", 850.00,  14, "22-10", 10944));
-    flight_list.push_back(Flights("España-Francia", 150.00,  2, "10-10", 800));
-    flight_list.push_back(Flights("Australia-Ciudad de Mexico", 1300.00,  15, "10-10", 12875));
-    flight_list.push_back(Flights("Hungría-Republica Checa", 150.00,  1, "13-11", 480));
-    flight_list.push_back(Flights("Estados Unidos-México", 400.00,  5, "15-12", 2414));
+    flight_list.push_back(Flights("Ciudad de Mexico-Japon", 850.00,  14, 22, 10, 10944));
+    flight_list.push_back(Flights("España-Francia", 150.00,  2, 10, 10, 800));
+    flight_list.push_back(Flights("Australia-Ciudad de Mexico", 1300.00,  15, 10, 10, 12875));
+    flight_list.push_back(Flights("Hungría-Republica Checa", 150.00,  1, 13, 11, 480));
+    flight_list.push_back(Flights("Estados Unidos-México", 400.00,  5, 15, 12, 2414));
 
     do {
         showMenu();
@@ -62,7 +62,7 @@ int main() {
                 // Loop through the list and show only the flight name
                 for (int i = 0; i < flight_list.size(); i++) {
                     cout << i+1 << ". Vuelo " << flight_list[i].get_flight_name() << " ";
-                    cout << "fecha: " << flight_list.at(i).get_date() << " ";
+                    cout << "fecha: " << flight_list.at(i).get_day() << "/" << flight_list.at(i).get_month() << " ";
                     cout << "precio: " << flight_list.at(i).get_price() << " ";
                 }
                 break;
@@ -70,6 +70,11 @@ int main() {
 
             case 3: {
                 // Implement option 3: Buscar vuelos en una fecha específica
+                cout << "Flitrar fecha\n";
+            }
+
+            case 4: {
+                //Reservar
                 int id = 0;
                 string pass_input = "";
 
@@ -80,23 +85,32 @@ int main() {
                 cout << "Contrasena: \n"; cin >> pass_input;
 
                 if (pass_input == pass_user) {
-                    
+                    int opt_book = 0;
+                    int opt_seats = 0;
+                    int first_class = false;
+
+                    cout << "Seleccione uno de los vuelos mostrados anteriormente: \n"; cin >> opt_book;
+
+                    cout << "Desea asiento de primera clase? 1. si 2. no\nEl precio es 10 veces mayor a la clase turista.\n";
+                    cin >> opt_seats;
+
+                    if
+
                 } else {
                     break;
                 }
             }
-
-            case 4: {
+            case 5: {
                 // Implement option 4: cancelar
                 cout << "Cancelar vuelo." << endl;
                 break;
             }
-            case 5: {
+            case 6: {
                 // Salir
                 cout << "Hasta pronto" << endl;
             }
         }
-    } while (option != 5);
+    } while (option != 6);
 
     return 0;
 }

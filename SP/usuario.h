@@ -24,17 +24,9 @@ public:
     void setID(int id);
     void registerUser();
 };
+//set methods
 inline void User::setName(string n) {
     name = n;
-}
-inline string User::getName() {
-    return name;
-}
-inline string User::getPassword() {
-    return password;
-}
-inline string User::getEmail() {
-    return email;
 }
 inline void User::setEmail(string em) {
     email = em;
@@ -45,6 +37,19 @@ inline void User::setPassword(string pass) {
 inline void User::setID(int i) {
     id = i;
 }
+
+//get methods
+inline string User::getName() {
+    return name;
+}
+inline string User::getPassword() {
+    return password;
+}
+inline string User::getEmail() {
+    return email;
+}
+
+//other methods
 inline void User::registerUser() {
     string n, em, pass;
 
