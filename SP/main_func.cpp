@@ -17,6 +17,7 @@ void showMenu() {
     cout << "5. Mostrar todos los detalles del vuelo elegido\n";
     cout << "6. Contar Kilometros\n";
     cout << "7. Cancelar Reserva\n";
+    cout << "8. Salir\n";
 
 }
 
