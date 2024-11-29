@@ -3,4 +3,5 @@ project(viajando-ando)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(viajando-ando)
+add_executable(viajando-ando SP/main_func.cpp
+        SP/Reserva.h)
