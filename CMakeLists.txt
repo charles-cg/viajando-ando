@@ -5,4 +5,4 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_executable(viajando-ando SP/main_func.cpp
         SP/Reserva.h
-        SP/vuelos.h)
+        SP/Flights.h)

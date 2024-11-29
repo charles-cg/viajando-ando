@@ -11,10 +11,9 @@ void showMenu() {
     cout << "Escoga la opción que desee (escriba el número correspondiente) \n";
     cout << "1. Registrar nuevo usuario\n";
     cout << "2. Mostrar todos los vuelos\n";
-    cout << "3. Buscare por fecha\n";
-    cout << "4. Reservar\n";
-    cout << "5. Cancelar Reserva\n";
-    cout << "6. Salir\n";
+    cout << "3. Reservar\n";
+    cout << "4. Cancelar Reserva\n";
+    cout << "5. Salir\n";
 }
 
 
@@ -71,14 +70,7 @@ int main() {
                 }
                 break;
             }
-
             case 3: {
-                // Implement option 3: Buscar vuelos en una fecha específica
-                cout << "Flitrar fecha\n";
-                break;
-            }
-
-            case 4: {
                 //Reservar
                 int id = 0;
                 string pass_input = "";
@@ -142,7 +134,7 @@ int main() {
                     break;
                 }
             }
-            case 5: {
+            case 4: {
                 // Cancelar Reserva
                 int num_reserva;
                 cout << "Ingrese el numero de reserva que desea cancelar: ";
@@ -163,12 +155,12 @@ int main() {
                 break;
             }
             }
-            case 6: {
+            case 5: {
                 // Salir
                 cout << "Hasta pronto" << endl;
             }
         }
-    } while (option != 6);
+    } while (option != 5);
 
     return 0;
 }
