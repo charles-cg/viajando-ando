@@ -24,7 +24,7 @@ class Flights {
     string get_flight_name();
     string get_date();
     float get_price();
-    bool get_first_class();
+    //bool get_first_class();
     int get_duration_hrs();
     int get_distance();
 
@@ -38,9 +38,9 @@ class Flights {
   float Flights::get_price(){
     return price;
   }
-  bool Flights::get_first_class(){
-    return first_class;
-  }
+  //bool Flights::get_first_class(){
+    //return first_class;
+  //}
 
   int Flights::get_duration_hrs(){
     return duration_hrs;
@@ -58,7 +58,7 @@ class Flights {
     cout<<"Flights:"<<endl;
     cout<<"Flight Name: "<<get_flight_name()<<endl;
     cout<<"Price: "<<get_price()<<endl;
-    cout <<"First Class: " << (get_first_class() ? "Yes" : "No") << endl;
+    //cout <<"First Class: " << (get_first_class() ? "Yes" : "No") << endl;
     cout<<"Duration HRS: "<<get_duration_hrs()<<endl;
     cout<<"Date: "<<get_date()<<endl;
   }
