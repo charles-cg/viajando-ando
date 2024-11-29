@@ -5,21 +5,21 @@ using namespace std;
 
 class Flights {
 
-  private:
+private:
     string flight_name;
     float price;
     int duration_hrs;
     int day, month;
     float distance;
 
-  public:
+public:
     Flights(string _flight_name, float _price, int _duration_hrs,int _day, int _month, int _distance){
-      flight_name = _flight_name;
-      price = _price;
-      duration_hrs = _duration_hrs;
-      day = _day;
+        flight_name = _flight_name;
+        price = _price;
+        duration_hrs = _duration_hrs;
+        day = _day;
         month = _month;
-      distance = _distance;
+        distance = _distance;
     };
     void show_info();
     string get_flight_name();
@@ -34,39 +34,38 @@ class Flights {
 
 
 
-  string Flights::get_flight_name(){
+string Flights::get_flight_name(){
     return flight_name;
-  }
-  float Flights::get_price(){
+}
+float Flights::get_price(){
     return price;
-  }
-  //bool Flights::get_first_class(){
-    //return first_class;
-  //}
+}
+//bool Flights::get_first_class(){
+//return first_class;
+//}
 
-  int Flights::get_duration_hrs(){
+int Flights::get_duration_hrs(){
     return duration_hrs;
-  }
+}
 
-  int Flights::get_day(){
+int Flights::get_day(){
     return day;
-  }
-  int Flights::get_month(){
-      return month;
-  }
+}
+int Flights::get_month(){
+    return month;
+}
 
-  int Flights::get_distance(){
+int Flights::get_distance(){
     return distance;
-  }
+}
 
-  void Flights::show_info(){
+void Flights::show_info(){
     cout<<"Flights:"<<endl;
     cout<<"Flight Name: "<<get_flight_name()<<endl;
     cout<<"Price: "<<get_price()<<endl;
     //cout <<"First Class: " << (get_first_class() ? "Yes" : "No") << endl;
     cout<<"Duration HRS: "<<get_duration_hrs()<<endl;
     cout<<"Date: "<<get_day()<< "/" << get_month()<< endl;
-  }
-
+}
 
 

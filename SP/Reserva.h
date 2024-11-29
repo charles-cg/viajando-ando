@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 #include "usuario.h"
-#include "vuelos.h"
+#include "Flights.h"
 
 using namespace std;
 
@@ -34,6 +34,9 @@ public:
     void createBooking(User& user, string username, Flights& flight, float price, string flight_name, int day, int month,
         int num_booking, bool first_class);
     void showDetails();
+    void cancelBooking();
+    bool isActive();
+    int getNumBooking();
 };
 
 //set methods
@@ -96,9 +99,18 @@ inline void Booking::showDetails() {
 
 
 
+void Booking::cancelBooking() {
+    active = false;
+}
+
+bool Booking::isActive() {
+    return active;
+}
 
 
-
+int Booking ::getNumBooking() {
+    return num_booking;
+}
 
 
 

@@ -1,6 +1,7 @@
 #include "Reserva.h"
 #include <vector>
 #include <iostream>
+
 using namespace std;
 
 
@@ -95,6 +96,9 @@ int main() {
 
                     cout << "Seleccione uno de los vuelos mostrados anteriormente: \n"; cin >> opt_book;
 
+                    cout << "Detalles del vuelo seleccionado:\n";
+                    flight_list.at(opt_book - 1).show_info();
+
                     cout << "Desea asiento de primera clase? 1. si 2. no\nEl precio es 10 veces mayor a la clase turista.\n";
                     cin >> opt_seats;
 
@@ -139,9 +143,25 @@ int main() {
                 }
             }
             case 5: {
-                // Implement option 4: cancelar
-                cout << "Cancelar vuelo." << endl;
+                // Cancelar Reserva
+                int num_reserva;
+                cout << "Ingrese el numero de reserva que desea cancelar: ";
+                cin >> num_reserva;
+
+                bool found = false;
+                for (int i = 0; i < bookings.size(); i++) {
+                    if (bookings[i].getNumBooking() == num_reserva) {
+                        bookings[i].cancelBooking();
+                        cout << "Reserva cancelada con exito.\n";
+                        found = true;
+                        break;
+                    }
+
+                if (!found) {
+                    cout << "No se encontro la reserva con ese numero.\n";
+                }
                 break;
+            }
             }
             case 6: {
                 // Salir
